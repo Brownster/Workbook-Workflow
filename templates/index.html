@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prometheus Monitoring Configurator</title>
+    <title>SM3 Monitoring Configurator</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -95,11 +95,41 @@
                 <option value="csv-to-yaml">Convert CSV to YAML</option>
                 <option value="yaml-format">Format YAML File</option>
                 <option value="super-putty">Generate SuperPutty XML</option>
+                <option value="rdp-man">Generate RDPMan RDG</option>
+                <option value="workbook-import">Import Workbook Data</option>
+                <option value="workbook-export">Export Workbook Data</option>
             </select>
+
+            <!-- Additional inputs based on specific operations -->
+            <div id="additional-inputs">
+                <!-- Inputs for SuperPutty XML Generation -->
+                <div id="super-putty-inputs" style="display: none;">
+                    <label for="group-name">Group Name:</label>
+                    <input type="text" id="group-name" name="group-name">
+
+                    <label for="column-name">Column Name:</label>
+                    <input type="text" id="column-name" name="column-name">
+
+                    <label for="match-value">Match Value:</label>
+                    <input type="text" id="match-value" name="match-value">
+                </div>
+
+                <!-- Inputs for other functionalities can be added here -->
+            </div>
 
             <input type="submit" value="Upload and Process">
         </form>
     </div>
+
+    <script>
+        // JavaScript to toggle visibility of additional inputs based on the selected process type
+        document.getElementById("process-type").addEventListener("change", function() {
+            var value = this.value;
+            document.getElementById("super-putty-inputs").style.display = value === "super-putty" ? "block" : "none";
+            // Add similar lines for other functionalities with additional inputs
+        });
+    </script>
 </body>
 </html>
+
 
