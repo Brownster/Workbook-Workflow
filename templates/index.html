@@ -91,8 +91,6 @@
             <label for="process-type">Select Process Type:</label>
             <select name="process-type" id="process-type">
                 <option value="bookmark">Create Bookmarks HTML</option>
-                <option value="yaml-to-csv">Convert YAML to CSV</option>
-                <option value="csv-to-yaml">Convert CSV to YAML</option>
                 <option value="yaml-format">Format YAML File</option>
                 <option value="super-putty">Generate SuperPutty XML</option>
                 <option value="rdp-man">Generate RDPMan RDG</option>
@@ -100,21 +98,47 @@
                 <option value="workbook-export">Export Workbook Data</option>
             </select>
 
-            <!-- Additional inputs based on specific operations -->
-            <div id="additional-inputs">
-                <!-- Inputs for SuperPutty XML Generation -->
-                <div id="super-putty-inputs" style="display: none;">
-                    <label for="group-name">Group Name:</label>
-                    <input type="text" id="group-name" name="group-name">
+            <!-- Inputs for SuperPutty XML Generation -->
+            <div id="super-putty-inputs" style="display: none;">
+                <label for="group-name">Group Name:</label>
+                <input type="text" id="group-name" name="group-name">
+                <label for="column-name">Column Name:</label>
+                <input type="text" id="column-name" name="column-name">
+                <label for="match-value">Match Value:</label>
+                <input type="text" id="match-value" name="match-value">
+            </div>
 
-                    <label for="column-name">Column Name:</label>
-                    <input type="text" id="column-name" name="column-name">
+            <!-- Inputs for Workbook Exporter -->
+            <div id="workbook-exporter-inputs" style="display: none;">
+                <input type="file" name="existing_yaml" accept=".yaml,.yml,.eyaml"><br>
+                <label for="default_listen_port">Default Listen Port:</label>
+                <input type="number" id="default_listen_port" name="default_listen_port"><br>
+            </div>
 
-                    <label for="match-value">Match Value:</label>
-                    <input type="text" id="match-value" name="match-value">
-                </div>
+            <!-- Inputs for Workbook Importer (YAML to CSV) -->
+            <div id="workbook-importer-inputs" style="display: none;">
+                <label for="heiradata_yaml">Heiradata YAML:</label>
+                <input type="file" id="heiradata_yaml" name="file" accept=".yaml, .eyaml" required>
+            </div>
 
-                <!-- Inputs for other functionalities can be added here -->
+            <!-- Inputs for Bookmark HTML Generation -->
+            <div id="bookmark-inputs" style="display: none;">
+                <label for="group-name">Group Name:</label>
+                <input type="text" id="group-name" name="group-name">
+                <label for="column-name">Column Name:</label>
+                <input type="text" id="column-name" name="column-name">
+                <label for="match-value">Match Value:</label>
+                <input type="text" id="match-value" name="match-value">
+            </div>
+
+            <!-- Inputs for RDPman XML Generation -->
+            <div id="rdp-man-inputs" style="display: none;">
+                <label for="group-name">Group Name:</label>
+                <input type="text" id="group-name" name="group-name">
+                <label for="column-name">Column Name:</label>
+                <input type="text" id="column-name" name="column-name">
+                <label for="match-value">Match Value:</label>
+                <input type="text" id="match-value" name="match-value">
             </div>
 
             <input type="submit" value="Upload and Process">
@@ -122,14 +146,14 @@
     </div>
 
     <script>
-        // JavaScript to toggle visibility of additional inputs based on the selected process type
         document.getElementById("process-type").addEventListener("change", function() {
             var value = this.value;
             document.getElementById("super-putty-inputs").style.display = value === "super-putty" ? "block" : "none";
+            document.getElementById("workbook-exporter-inputs").style.display = value === "workbook-export" ? "block" : "none";
+            document.getElementById("workbook-importer-inputs").style.display = value === "workbook-import" ? "block" : "none";
             // Add similar lines for other functionalities with additional inputs
         });
     </script>
 </body>
 </html>
-
 
