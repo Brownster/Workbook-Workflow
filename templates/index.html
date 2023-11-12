@@ -73,7 +73,7 @@
     <header>
         <div class="container">
             <div id="branding">
-                <h1><span class="highlight">Prometheus</span> Monitoring Configurator</h1>
+                <h1><span class="highlight">SM3</span> Monitoring Configurator</h1>
             </div>
             <nav>
                 <ul>
@@ -85,8 +85,8 @@
 
     <div class="container">
         <form action="/" method="post" enctype="multipart/form-data">
-            <label for="file">Upload File:</label>
-            <input type="file" id="file" name="file" required>
+  #          <label for="file">Upload File:</label>
+  #          <input type="file" id="file" name="file" required>
             
             <label for="process-type">Select Process Type:</label>
             <select name="process-type" id="process-type">
@@ -141,6 +141,12 @@
                 <input type="text" id="match-value" name="match-value">
             </div>
 
+            <!-- Inputs for YAML Foramt Fixer -->
+            <div id="yaml-format-inputs" style="display: none;">
+                <label for="heiradata_yaml">Heiradata YAML:</label>
+                <input type="file" id="heiradata_yaml" name="file" accept=".yaml, .eyaml" required>
+            </div>
+
             <input type="submit" value="Upload and Process">
         </form>
     </div>
@@ -151,7 +157,9 @@
             document.getElementById("super-putty-inputs").style.display = value === "super-putty" ? "block" : "none";
             document.getElementById("workbook-exporter-inputs").style.display = value === "workbook-export" ? "block" : "none";
             document.getElementById("workbook-importer-inputs").style.display = value === "workbook-import" ? "block" : "none";
-            // Add similar lines for other functionalities with additional inputs
+            document.getElementById("bookmark-inputs").style.display = value === "bookmark" ? "block" : "none";
+            document.getElementById("rdp-man-inputs").style.display = value === "rdp-man" ? "block" : "none";
+            document.getElementById("yaml-format-inputs").style.display = value === "yaml-format" ? "block" : "none";
         });
     </script>
 </body>
