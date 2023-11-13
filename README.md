@@ -1,7 +1,7 @@
 SM3 Monitoring Configurator
 Overview
 
-This Flask application serves as a unified interface for various tasks related to Prometheus monitoring configuration. It combines multiple functionalities like creating bookmarks HTML from a workbook, converting between YAML and CSV formats, formatting YAML files, and generating SuperPutty XML configurations.
+This Flask application serves as a unified interface for various tasks related to excel workbooks containing ip address, fqdn and server what monitoring exporters are to be setup for monitoring configuration im prometheus. It combines multiple functionalities like creating bookmarks HTML from a workbook, converting between YAML and CSV formats, formatting YAML files, and generating SuperPutty XML configurations.
 Features
 
     File Upload: Users can upload Excel workbooks, CSV, or YAML files.
